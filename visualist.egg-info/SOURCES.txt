@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+setup.py
+visualist/__init__.py
+visualist.egg-info/PKG-INFO
+visualist.egg-info/SOURCES.txt
+visualist.egg-info/dependency_links.txt
+visualist.egg-info/requires.txt
+visualist.egg-info/top_level.txt
+visualist/fonts/Roboto-Medium.ttf
