@@ -1,4 +1,7 @@
-from visualist import draw_list
+from visualist import Visualist
 
-img = draw_list([1, 2, -4, 2], [2])
+visualist = Visualist((640, 180))
+
+img = visualist.img_from_list([1, 2, -4, 2, -2, 5], [2, 4])
+
 img.show()

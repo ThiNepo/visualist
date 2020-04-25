@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: visualist
-Version: 0.1.1
+Version: 0.2.1
 Summary: A simple library to visualize lists.
 Home-page: UNKNOWN
 Author: Thiago Nepomuceno
@@ -8,26 +8,29 @@ Author-email: thi.nepo@gmail.com
 License: UNKNOWN
 Description: # Visualist
         
-        This is a very simple lilbrary to visualize lists in Python. 
+        This is a very simple library to visualize lists in Python. 
         
-        It was created mainly to support the creation of tutoriais for [Neps Academy](https://neps.academy/) (amazing website :D).
+        It was created mainly to support the creation of tutorials for [Neps Academy](https://neps.academy/) (amazing website :D).
         
         ### Usage
         
-        The minimal example is shown below. 
+        The minimal example is shown below. It supposes that we want to create an image 640x180 pixels from the list [1, 2, -4, 2, -2, 5] and highlight the indexes [2, 4].
         
-        ```json
-        from visualist import draw_list
+        ```python
+        from visualist import Visualist
         
-        img = draw_list([1, 2, -4, 2], [2])
+        visualist = Visualist((640, 180))
+        
+        img = visualist.img_from_list([1, 2, -4, 2, -2, 5], [2, 4])
+        
         img.show()
         ```
         
         The result of this code would be
         
-        ![example](https://neps.academy/image/374.png)
+        ![example](https://neps.academy/image/375.png)
         
-        Showing a list [1, 2, -4, 2] and highlighting the index 2.
+        If you want to save the image change `img.show()` to `img.save('my_dear_list.png')`.
         
         #### Building the library
         
