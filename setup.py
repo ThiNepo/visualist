@@ -32,13 +32,14 @@ class BdistWheelCommand(bdist_wheel):
 
 setuptools.setup(
     name="visualist",
-    version="0.2.1",
+    version="0.2.4",
     author="Thiago Nepomuceno",
     author_email="thi.nepo@gmail.com",
     description="A simple library to visualize lists.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     include_package_data=True,
+    url='https://github.com/ThiNepo/visualist',
     #url="https://github.com/pypa/sampleproject",
     packages=setuptools.find_packages(),
     #entry_points={

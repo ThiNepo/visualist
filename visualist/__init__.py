@@ -1,11 +1,10 @@
 from PIL import Image, ImageDraw, ImageFont
 import os 
-
+from typing import List
 
 class Visualist:
 
-    def __init__(self, image_size, cell_size=32, space=16):
-        self.IMAGE_SIZE = image_size
+    def __init__(self, cell_size=64, space=32):
         self.CELL_SIZE = cell_size
         self.SPACE = space
 
@@ -14,11 +13,16 @@ class Visualist:
 
     def img_from_list(self, L, highlight_indexes=[], color=(36, 116, 191, 255), highlight_color=(255, 46, 52, 255), indexes=True) -> Image:
 
-        img = Image.new('RGBA', self.IMAGE_SIZE, (255,255,255,255))
+        start_of_drawing = (len(L)/2)*(self.CELL_SIZE+self.SPACE)
+        IMAGE_SIZE = (int(2 * start_of_drawing), 
+                            3*self.CELL_SIZE)
+
+        img = Image.new('RGBA', IMAGE_SIZE, (255,255,255,255))        
+
         MIDDLE = (img.size[0]/2, img.size[1]/2)
 
         draw = ImageDraw.Draw(img)
-        pointer = MIDDLE[0] - (len(L)/2)*(self.CELL_SIZE+self.SPACE) + self.SPACE/2
+        pointer = MIDDLE[0] - start_of_drawing + self.SPACE/2
         
         for index, item in enumerate(L):
             X0 = pointer
@@ -46,6 +50,19 @@ class Visualist:
 
         return img
 
-#img = draw_list([1, 2, -4, 2], [2])
-#img.show()
+    def img_from_lists(self,L, HI, color=(36, 116, 191, 255), highlight_color=(255, 46, 52, 255), indexes=True) -> Image:
+        imgs = []
+        sum_height = 0
+        max_width = 0
+        for l, hi in zip(L, HI):
+            img = self.img_from_list(l, hi, color, highlight_color, indexes)
+            max_width = max(max_width, img.size[0])
+            sum_height += img.size[1]
+            imgs.append(img)
 
+        final_img = Image.new('RGBA', (max_width, sum_height), (255,255,255,255))   
+
+        for index, img in enumerate(imgs):
+            final_img.paste(img, (int(max_width/2 - img.size[0]/2), index*img.size[1]))
+
+        return final_img
