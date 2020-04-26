@@ -4,18 +4,22 @@ from typing import List
 
 class Visualist:
 
-    def __init__(self, cell_size=64, space=32):
+    def __init__(self, image_size=None, cell_size=64, space=32):
+
         self.CELL_SIZE = cell_size
         self.SPACE = space
 
         font_path = os.path.join( os.path.abspath( os.path.dirname(__file__) ), 'fonts', 'Roboto-Medium.ttf' )
         self.font = ImageFont.truetype(font_path, int(self.CELL_SIZE/2))
 
-    def img_from_list(self, L, highlight_indexes=[], color=(36, 116, 191, 255), highlight_color=(255, 46, 52, 255), indexes=True) -> Image:
+    def img_from_list(self, L, highlight_indexes=[], image_size=None, color=(36, 116, 191, 255), highlight_color=(255, 46, 52, 255), indexes=True) -> Image:
 
         start_of_drawing = (len(L)/2)*(self.CELL_SIZE+self.SPACE)
-        IMAGE_SIZE = (int(2 * start_of_drawing), 
-                            3*self.CELL_SIZE)
+        if image_size:
+            IMAGE_SIZE = image_size
+        else:
+            IMAGE_SIZE = (int(2 * start_of_drawing), 
+                                int(3*self.CELL_SIZE))
 
         img = Image.new('RGBA', IMAGE_SIZE, (255,255,255,255))        
 
@@ -50,12 +54,15 @@ class Visualist:
 
         return img
 
-    def img_from_lists(self,L, HI, color=(36, 116, 191, 255), highlight_color=(255, 46, 52, 255), indexes=True) -> Image:
+    def img_from_lists(self,L, HI, image_size=None, color=(36, 116, 191, 255), highlight_color=(255, 46, 52, 255), indexes=True) -> Image:
         imgs = []
         sum_height = 0
         max_width = 0
         for l, hi in zip(L, HI):
-            img = self.img_from_list(l, hi, color, highlight_color, indexes)
+            if image_size is not None:
+                img = self.img_from_list(l, hi, (image_size[0], int(image_size[1]/len(L))), color, highlight_color, indexes)
+            else:
+                img = self.img_from_list(l, hi, image_size, color, highlight_color, indexes)
             max_width = max(max_width, img.size[0])
             sum_height += img.size[1]
             imgs.append(img)

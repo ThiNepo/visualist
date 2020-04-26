@@ -32,7 +32,7 @@ class BdistWheelCommand(bdist_wheel):
 
 setuptools.setup(
     name="visualist",
-    version="0.2.4",
+    version="0.2.5",
     author="Thiago Nepomuceno",
     author_email="thi.nepo@gmail.com",
     description="A simple library to visualize lists.",
