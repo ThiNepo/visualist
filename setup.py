@@ -33,7 +33,7 @@ class BdistWheelCommand(bdist_wheel):
 
 setuptools.setup(
     name="visualist",
-    version="0.2.5",
+    version="0.2.7",
     author="Thiago Nepomuceno",
     author_email="thi.nepo@gmail.com",
     description="A simple library to visualize lists.",
@@ -48,7 +48,7 @@ setuptools.setup(
     # },
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
         "Operating System :: OS Independent",
     ],
     install_requires=["Pillow>=7.1.1"],
