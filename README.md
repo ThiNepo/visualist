@@ -2,7 +2,7 @@
 
 [![Discord](https://img.shields.io/discord/479923444017004556?label=discord)](https://discord.gg/jWWDRyD5Nu) [![PyPI - Downloads](https://img.shields.io/pypi/dm/visualist)](https://pypi.org/project/visualist/) [![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCMb90JgsFJpZyZzdmWCaCTg?style=social)](https://www.youtube.com/channel/UCMb90JgsFJpZyZzdmWCaCTg)
 
-![Logo](/images/logo.svg)
+![Logo](https://github.com/ThiNepo/visualist/raw/master/images/logo.svg)
 
 This is a very simple library to visualize lists in Python.
 
@@ -29,7 +29,7 @@ img.show()
 
 The result of this code would be
 
-![example](/images/simple.png)
+![example](https://github.com/ThiNepo/visualist/raw/master/images/simple.png)
 
 If you want to save the image change `img.show()` to `img.save('my_dear_list.png')`.
 
@@ -46,7 +46,7 @@ img.show()
 
 The result will be
 
-![example](/images/multi_lists.png)
+![example](https://github.com/ThiNepo/visualist/raw/master/images/multi_lists.png)
 
 #### Building the library
 
